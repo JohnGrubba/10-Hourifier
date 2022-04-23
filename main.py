@@ -22,21 +22,21 @@ if iswindows:
 def download_binary():
     # Check if downloaded
     if iswindows:
-        if os.path.isfile("bin/ffmpeg.exe"):
-            if md5("bin/ffmpeg.exe") == "9874a725f05265513b104086ec939027":
+        if os.path.isfile("ffmpeg.exe"):
+            if md5("ffmpeg.exe") == "9874a725f05265513b104086ec939027":
                 print("Binary already found... Skipping Download")
                 return
             else:
                 print("Corrupted File Found, deleting it and re-downloading")
-                os.remove("bin/ffmpeg.exe")
+                os.remove("ffmpeg.exe")
     else:
-        if os.path.isfile("bin/ffmpeg"):
-            if md5("bin/ffmpeg") == "dfd7e86f5d128c56c38f7d2d224e6e80":
+        if os.path.isfile("ffmpeg"):
+            if md5("ffmpeg") == "dfd7e86f5d128c56c38f7d2d224e6e80":
                 print("Binary already found... Skipping Download")
                 return
             else:
                 print("Corrupted File Found, deleting it and re-downloading")
-                os.remove("bin/ffmpeg")
+                os.remove("ffmpeg")
 
     def dl_progress(current, total, width: None):
         print("\rDownloaded {} of {} bytes ({:.2f}%)".format(current, total, 100 * current / total), end="")
@@ -44,16 +44,15 @@ def download_binary():
         print("Downloading Windows Binary...")
     else:
         print("Downloading Linux Binary...")
-    os.makedirs("bin", exist_ok=True)
-    wget.download(dl_link, bar=dl_progress, out="bin/")
+    wget.download(dl_link, bar=dl_progress)
 
 def merge_videos(output_name):
     if iswindows:
-        os.system(f'bin/ffmpeg.exe -f concat -safe 0 -i "temp" -c:v copy "{output_name}"')
+        os.system(f'ffmpeg.exe -f concat -safe 0 -i "temp" -c:v copy "{output_name}"')
     else:
-        os.system("chmod +x bin/ffmpeg")
+        os.system("chmod +x ffmpeg")
         time.sleep(0.5)
-        os.system(f'bin/ffmpeg -f concat -safe 0 -i "temp" -c:v copy "{output_name}"')
+        os.system(f'ffmpeg -f concat -safe 0 -i "temp" -c:v copy "{output_name}"')
 
 if __name__ == "__main__":
     # Ask Questions
@@ -73,3 +72,5 @@ if __name__ == "__main__":
     # Cleanup
     os.remove("temp")
     print("Done")
+    input()
+    input()
