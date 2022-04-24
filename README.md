@@ -14,7 +14,7 @@ It doesn't render the whole Video but just copy it over and over which makes it 
 ### Windows
 Just run the .exe on windows and it will ask you everything. No need to use Command Line arguments.
 ### Linux
-```python
+```
 cd binaries
 chmod +x 10HourifierLinux
 ./10HourifierLinux
