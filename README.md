@@ -10,5 +10,15 @@ Free, Fast, OpenSource, Just Perfect (OpenSource because it was easy to make ðŸ˜
 With ffmpeg it is pretty easy to loop a video and the speed is only limited by your hard disk and CPU.
 It doesn't render the whole Video but just copy it over and over which makes it more efficient than using a Video Editing Software.
 
+## Usage
+### Windows
+Just run the .exe on windows and it will ask you everything. No need to use Command Line arguments.
+### Linux
+```python
+cd binaries
+chmod +x 10HourifierLinux
+./10HourifierLinux
+```
+
 ## Thanks but you're bad at coding
 Just open a Pull Request and do it better ðŸ˜‰
